@@ -19,7 +19,7 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "name", length = 100, nullable = false)
+    @Column(name = "nome", length = 100, nullable = false)
     private String name;
 
     @Column(name = "data_nascimento", nullable = false)
@@ -28,6 +28,7 @@ public class Autor {
     @Column(name = "nascionalidade", length = 50, nullable = false)
     private String nascionalidade;
 
-    @OneToMany(mappedBy = "autor")
+    //@OneToMany(mappedBy = "autor")
+    @Transient
     private List<Livro> livros;
 }
