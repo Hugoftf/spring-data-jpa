@@ -1,7 +1,7 @@
 package com.exampleJPA.libraryapi.model;
 
 public enum GeneroLivro {
-    FICCCAO,
+    FICCAO,
     FANTASIA,
     MISTERIO,
     ROMANCE,
