@@ -24,9 +24,9 @@ public class LivroRepositoryTeste {
     public void salvarLivroTeste(){
         Livro livro = new Livro();
 
-        livro.setIsbn("12120129");
-        livro.setDataPublicacao(LocalDate.of(2024,10, 22));
-        livro.setTitulo("A forca");
+        livro.setIsbn("254549");
+        livro.setDataPublicacao(LocalDate.of(2024,11, 12));
+        livro.setTitulo("O sol");
         livro.setPreco(BigDecimal.valueOf(20));
         livro.setGeneroLivro(GeneroLivro.FICCAO);
 
@@ -36,4 +36,18 @@ public class LivroRepositoryTeste {
 
         livroRepository.save(livro);
     }
+
+    @Test
+    public void atualizarAutorDoLivro(){
+        var livroParaAtualizar = livroRepository.findById(UUID.fromString
+                ("3a85bf8e-da20-4a15-aeed-5a63dcb8a8b2")).orElse(null);
+        var novoAutor = autorRepository.findById
+                (UUID.fromString("279547e4-93b4-4c0a-9a94-6b4afad030cc")).orElse(null);
+
+        livroParaAtualizar.setAutor(novoAutor);
+
+        livroRepository.save(livroParaAtualizar);
+    }
 }
+
+
