@@ -92,6 +92,47 @@ public class LivroRepositoryTeste {
             System.out.println(livro);
         }
     }
+
+    @Test
+    public void listarLivrosComQueryJPQL(){
+        List<Livro> list = livroRepository.listarTodos();
+        for (Livro livro:list){
+            System.out.println(livro);
+        }
+    }
+
+    @Test
+    public void listarAutorComQueryJPQL(){
+        List<Autor> list = livroRepository.listarAutor();
+        for (Autor autor:list){
+            System.out.println(autor);
+        }
+    }
+
+    @Test
+    public void listarAutoresBrasileirosComQueryJPQL(){
+        var resultado = livroRepository.listarGeneroAutoresBrasileiros();
+       resultado.forEach(System.out::println);
+    }
+
+    @Test
+    public void listarPorGeneroQueryParamTest(){
+        var resultado = livroRepository.encontrandoPorgeneroOrdenado
+                (GeneroLivro.CIENCIA, "dataPublicacao");
+        resultado.forEach(System.out::println);
+
+    }
+
+    @Test
+    public void deletePorGeneroTest(){
+        livroRepository.deletandoPorGenero(GeneroLivro.CIENCIA);
+    }
+
+    @Test
+    public void atualizandoDataTeste(){
+        livroRepository.atualizandoDataPublicacao(LocalDate.of(2001,1,1));
+    }
+
 }
 
 
